@@ -1,0 +1,41 @@
+# admin/config.yml
+media: images/uploads # Where images will be saved
+
+content:
+  # 1. ABOUT US SECTION
+  - name: about
+    label: About Us
+    type: file
+    path: data/about.json
+    fields:
+      - { name: title, label: Section Heading, type: string }
+      - { name: bio, label: Bio Text, type: rich-text }
+      - { name: image, label: About Image, type: image }
+
+  # 2. SERVICES LIST
+  - name: services
+    label: Our Services
+    type: file
+    path: data/services.json
+    fields:
+      - name: items
+        label: Service List
+        type: object
+        list: true # This makes it a list the owner can add/remove from
+        fields:
+          - { name: name, label: Service Name, type: string }
+          - { name: desc, label: Description, type: text }
+
+  # 3. GALLERY
+  - name: gallery
+    label: Photo Gallery
+    type: file
+    path: data/gallery.json
+    fields:
+      - name: photos
+        label: Photos
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Image File, type: image }
+          - { name: caption, label: Caption, type: string }
